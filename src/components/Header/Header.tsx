@@ -1,6 +1,4 @@
-import { MoonFilled, SunOutlined } from "@ant-design/icons";
 import Link from "next/link";
-import react, { useState } from "react";
 import ThemeSwitch from "../ThemeSwitch/ThemeSwith";
 
 const pages = [
@@ -12,7 +10,7 @@ const pages = [
 
 const Header = () => {
     return (
-        <header className="sticky top-0 z-10 h-16 flex flex-row justify-around items-center border-b-1 dark:bg-customBlack bg-white shadow-md">
+        <header className="sticky top-0 z-10 h-16 flex flex-row justify-around items-center border-b dark:border-white dark:bg-customBlack bg-white shadow-md">
             <div>
                 <Link href="/" className="font-bold text-2xl md:text-2xl font-mono">myb.io</Link>
             </div>
