@@ -1,8 +1,10 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 
 export default function Comment() {
   const ref = useRef<HTMLDivElement>(null);
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     if (!ref.current || ref.current.hasChildNodes()) return;
@@ -20,12 +22,12 @@ export default function Comment() {
     scriptEl.setAttribute('data-reactions-enabled', '1');
     scriptEl.setAttribute('data-emit-metadata', '0');
     scriptEl.setAttribute('data-input-position', 'bottom');
-    scriptEl.setAttribute('data-theme', 'light');
+    scriptEl.setAttribute('data-theme', resolvedTheme === 'dark' ? 'noborder_dark' : 'noborder_light');
     scriptEl.setAttribute('data-lang', 'ko');
     scriptEl.setAttribute('crossorigin', 'anonymous');
 
     ref.current.appendChild(scriptEl);
-  }, []);
+  }, [resolvedTheme, setTheme]);
 
   return <section ref={ref} />;
 }

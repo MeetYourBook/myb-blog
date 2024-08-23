@@ -7,6 +7,13 @@ import Comment from "@/src/components/Comments/Comments";
 
 const mdxComponents: MDXComponents = {
     a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
+    ul: (props) => <ul className="m-0 p-0 list-none" {...props} />,
+    li: (props) => <li className="m-0 p-0" {...props} />,
+    ol: (props) => <ol className="m-0 " {...props} />,
+    h1: (props) => <h1 className="m-0 dark:text-white" {...props} />,
+    h2: (props) => <h2 className="dark:text-white" {...props} />,
+    h3: (props) => <h3 className="dark:text-white" {...props} />,
+    h4: (props) => <h4 className="dark:text-white" {...props} />,
 };
 
 export default function Page({ params }: { params: { slug: string } }) {
@@ -18,20 +25,25 @@ export default function Page({ params }: { params: { slug: string } }) {
     const MDXContent = useMDXComponent(post.body.code);
 
     return (
-        <article className="max-w-screen-md flex flex-col px-10 m-auto prose">
-            <div className="mt-8 text-center">
+        <article className="max-w-screen-md flex flex-col px-10 m-auto prose dark:text-white">
+            <div className="mt-8">
                 <time
                     dateTime={post.date}
-                    className="mb-1 text-xs text-gray-600"
+                    className="text-sm text-gray-600 dark:text-gray-300"
                 >
                     {new Intl.DateTimeFormat("en-US").format(
                         new Date(post.date)
                     )}
                 </time>
-                <h1 className="text-3xl font-bold">{post.title}</h1>
+                <h1 className="text-3xl font-bold dark:text-white mt-3">
+                    {post.title}
+                </h1>
             </div>
+            <hr className="border-t-2 border-gray-200 mt-4 mb-6" />
             <MDXContent components={mdxComponents} />
-            <Comment/>
+            <div className="mt-20">
+                <Comment />
+            </div>
         </article>
     );
 }
