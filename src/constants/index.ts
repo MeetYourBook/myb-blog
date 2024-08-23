@@ -3,9 +3,4 @@ export const categories = [
     { name: "Js", emoji: "📒" },
     { name: "Ts", emoji: "📘" },
     { name: "React", emoji: "🛠️" },
-    { name: "React", emoji: "🛠️" },
-    { name: "React", emoji: "🛠️" },
-    { name: "React", emoji: "🛠️" },
-    { name: "React", emoji: "🛠️" },
-    { name: "React", emoji: "🛠️" },
 ];
