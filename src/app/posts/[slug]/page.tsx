@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Comment from "@/src/components/Comments/Comments";
 
+// MDX 컴포넌트 커스텀 스타일 정의
 const mdxComponents: MDXComponents = {
     a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
     ul: (props) => <ul className="m-0 p-0 list-none" {...props} />,
@@ -16,11 +17,13 @@ const mdxComponents: MDXComponents = {
     h4: (props) => <h4 className="dark:text-white" {...props} />,
 };
 
+// 포스트 페이지 컴포넌트
 export default function Page({ params }: { params: { slug: string } }) {
-    const post = allPosts.find(
-        (post) => post._raw.flattenedPath === params.slug
-    );
-    if (!post) notFound();
+    const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+
+    if (!post) {
+        notFound();
+    }
 
     const MDXContent = useMDXComponent(post.body.code);
 
@@ -31,9 +34,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     dateTime={post.date}
                     className="text-sm text-gray-600 dark:text-gray-300"
                 >
-                    {new Intl.DateTimeFormat("en-US").format(
-                        new Date(post.date)
-                    )}
+                    {new Intl.DateTimeFormat("en-US").format(new Date(post.date))}
                 </time>
                 <h1 className="text-3xl font-bold dark:text-white mt-3">
                     {post.title}
@@ -46,4 +47,10 @@ export default function Page({ params }: { params: { slug: string } }) {
             </div>
         </article>
     );
+}
+
+export async function generateStaticParams() {
+    return allPosts.map((post) => ({
+        slug: post._raw.flattenedPath,
+    }));
 }
