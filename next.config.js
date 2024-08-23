@@ -2,7 +2,7 @@ const { withContentlayer } = require("next-contentlayer");
 
 const prefix =
     process.env.NODE_ENV === "production"
-        ? "https://meetyourbook.github.io/"
+        ? "/myb-blog"
         : "";
 
 const nextConfig = {
