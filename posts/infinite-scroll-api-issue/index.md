@@ -8,7 +8,7 @@ category: ts, All, React
 ## 문제 상황
 - IntersectionObserver API를 사용해 무한 스크롤 기능을 구현했는데, React Query Devtools를 통해 확인해 보니 API 요청이 여러 번 발생하는 문제가 있었습니다. 정상적인 동작이라면, 스크롤이 끝에 도달했을 때 한 번씩만 API 요청이 일어나야 하지만, 아래 사진과 같이 여러 번의 요청이 발생했습니다.
 
-![infinite](/infinite1.png)
+![infinite-scroll-issue](/myb-blog/images/infinite-scroll-issue-1.png)
 
 ## 문제의 원인
 - 현재 무한 스크롤 로직은 책을 보여주는 컴포넌트의 최하단에 `<div> `태그를 하나 두고, 이 태그가 화면에 보이는지 여부를 IntersectionObserver로 감지하여 추가 데이터를 로드하는 방식입니다.
@@ -102,15 +102,15 @@ export default BooksDisplay;
 
 ### 결과
 
-![infinite](/infinite2.png)
+![infinite-scroll-issue](/myb-blog/images/infinite-scroll-issue-2.png)
 
 - 이 변경 후, API 요청은 첫 페이지 로딩 시 위와 같이 한 번만 발생했습니다. 그러나 무한 스크롤 기능이 더 이상 동작하지 않는 문제가 발생했습니다. 이때 최하단을 감지하지 못하는 문제를 파악하기 위해 observerRef.current를 콘솔로 확인했습니다.
 
 - 변경전
-![infinite](/infinite3.png)
+![infinite-scroll-issue](/myb-blog/images/infinite-scroll-issue-3.png)
 
 - 변경 후
-![infinite](/infinite4.png)
+![infinite-scroll-issue](/myb-blog/images/infinite-scroll-issue-4.png)
 
 - 코드를 변경한 후 observerRef에 태그가 할당되지 않는 것을 확인했습니다.
 
