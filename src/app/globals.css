@@ -20,3 +20,15 @@ body {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.prose.dark blockquote {
+    color: white;
+}
+
+.prose.dark h2 {
+    color: white;
+}
+
+.prose.dark code {
+    color: white;
+}

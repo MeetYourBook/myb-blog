@@ -27,7 +27,7 @@ console.log("Hello, World!");
 ```
 
 ## post 작성
-1. posts 폴더에 post-제목(영어).mdx 생성
+1. posts 폴더에 title 명으로 폴더 생성(대문자, 공백 X) 생성한 폴더 안에 index.md 파일 생성 후 작성
 2. post 정의 
 ```
 ---
@@ -42,7 +42,6 @@ category: All        # 카테고리, 예: All, JavaScript, React 등 여러개 �
 
 ## 본문 작성
 - 본문은 일반적인 Markdown 문법을 사용하여 작성할 수 있으며, `##`로 제목을 구분하거나, 코드 블록, 인용문, 리스트 등을 자유롭게 사용할 수 있습니다.
-- 대체로 Markdown의 문법을 사용할 수 있지만 제가 사용하고있는 contentlatey에서 mdx를 파싱하며 지원하지 않는 Markdown문법도 있어 찾아보시고 적용하시길 바랍니다.
 
 ## 카테고리 지정
 - category: 에서 카테고리를 지정할 수 있고 post페이지에서 각 카테고리별로 post를 필터링 할 수 있습니다.
@@ -60,6 +59,6 @@ category: All        # 카테고리, 예: All, JavaScript, React 등 여러개 �
 
 
 ## 기타
-- mdx가 어떻게 변환되는지 post-guide.mdx 파일을 보시면 좋을 것 같습니다!
+- md가 어떻게 변환되는지 post-guide.md 파일을 보시면 좋을 것 같습니다!
 - 레이아웃, 스타일 관련 변경 문의는 언제든지 환영입니다!
 - 모르시는거 있으면 언제든지 말해주세요!
