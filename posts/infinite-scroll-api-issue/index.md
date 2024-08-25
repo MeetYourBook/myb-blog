@@ -1,6 +1,6 @@
 ---
 title: 무한스크롤 API요청이 여러번 되는 문제 해결기
-date: 2024-07-09
+date: 2024-08-26
 content: IntersectionObserver API로 무한 스크롤을 구현 시 API 요청 여러번 되는 문제
 category: ts, All, React
 ---
